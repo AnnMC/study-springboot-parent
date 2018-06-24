@@ -40,6 +40,6 @@ public class LambaTest {
     }
 
     public static void getInteger() {
-        System.out.println(Thread.currentThread().getName());
+        System.out.println("线程正在执行：" + Thread.currentThread().getName());
     }
 }
