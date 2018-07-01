@@ -52,4 +52,9 @@ public class UserServiceImplTest {
         List<UserDO> list = userService.queryByUserName("feifei", pageable);
         System.out.println(list.size());
     }
+
+    @Test
+    public void countUser() {
+        System.out.println(userService.countUser());
+    }
 }

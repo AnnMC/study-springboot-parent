@@ -23,4 +23,6 @@ public interface UserService {
     Integer updateUserById(Long id, String userName);
 
     List<UserDO> queryByUserName(String name, Pageable pageable);
+
+    Long countUser();
 }

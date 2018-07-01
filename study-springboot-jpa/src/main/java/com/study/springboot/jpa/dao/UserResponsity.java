@@ -24,4 +24,5 @@ public interface UserResponsity extends BaseResponsity<UserDO, Long> {
     Integer updateUserById(@Param("id") Long id, @Param("userName") String userName);
 
     List<UserDO> queryByUserName(String name, Pageable pageable);
+
 }

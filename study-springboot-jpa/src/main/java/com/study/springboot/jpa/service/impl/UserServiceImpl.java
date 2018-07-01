@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * @Author Andy
- * @Description //TODO
+ * @Description TODO
  * @Date 2018/6/30 16:16
  */
 @Service("userService")
@@ -39,5 +39,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDO> queryByUserName(String name, Pageable pageable) {
         return userResponsity.queryByUserName(name, pageable);
+    }
+
+    @Override
+    public Long countUser() {
+        return userResponsity.count();
     }
 }
