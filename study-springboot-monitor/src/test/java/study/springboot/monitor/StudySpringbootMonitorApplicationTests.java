@@ -1,4 +1,4 @@
-package com.study.springboot.studyspringbootserver;
+package study.springboot.monitor;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class StudySpringbootServerApplicationTests {
+public class StudySpringbootMonitorApplicationTests {
 
 	@Test
 	public void contextLoads() {

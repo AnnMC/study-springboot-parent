@@ -1,30 +1,41 @@
 package com.study.springboot.java8;
 
-import org.apache.commons.lang3.RandomUtils;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentSkipListMap;
 
 public class LambaTest {
 
     public static void main(String[] args) {
         List<String> list = getStrs();
 
-        /**
-         * 遍历
-         */
-        list.forEach(str -> {
-            if (str.startsWith("l")) {
-                System.out.println(str);
-            }
-        });
+        Optional<List> optionalList = Optional.of(list);
 
-        /**
-         * 处理线程
-         */
-        new Thread(() -> {
-            LambaTest.getInteger();
-        }).start();
+        if (optionalList.isPresent()) {
+            /**
+             * 遍历
+             */
+            list.forEach(str -> {
+                if (str.startsWith("l")) {
+                    System.out.println(str);
+                }
+            });
+
+            /**
+             * 处理线程
+             */
+            new Thread(() -> {
+                LambaTest.getInteger();
+            }).start();
+        }
+
+
+        ConcurrentSkipListMap<String, String> listMap = new ConcurrentSkipListMap();
+
+        listMap.put("xx","yy");
+        System.out.println(listMap.containsKey("xx"));
     }
 
     public static List<String> getStrs() {

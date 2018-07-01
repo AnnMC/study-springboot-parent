@@ -45,4 +45,9 @@ public class UserServiceImpl implements UserService {
     public Long countUser() {
         return userResponsity.count();
     }
+
+    @Override
+    public void deleteUserById(Long id) {
+        userResponsity.deleteById(id);
+    }
 }

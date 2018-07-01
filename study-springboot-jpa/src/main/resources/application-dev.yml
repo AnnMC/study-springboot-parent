@@ -1,0 +1,37 @@
+server:
+    port: 10161
+    context-path: /svc-monitor/ #统一为访问的url加上一个前缀
+
+spring:
+  datasource:
+      url: jdbc:mysql://localhost:3306/springboot
+      username: root
+      password: 111111
+      driver-class-name: com.mysql.jdbc.Driver
+
+  jpa:
+    properties:
+        hibernate:
+          hbm2ddl.auto: update
+          dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  show-sql: true
+
+  boot:
+      admin:
+        client:
+          prefer-ip: true # 解决windows下运行时无法识别主机名的问题
+        url: http://localhost:64000/svc-monitor # 向服务端注册的地址
+
+  management:
+    port: 64001
+    security:
+      enabled: false # spring-boot 1.5.2之后严格执行安全策略，所以需要配置这个为false
+  info: #定义各种额外的详情给服务端显示
+    app:
+      name: "@project.name@" #从pom.xml中获取
+      description: "@project.description@"
+      version: "@project.version@"
+      spring-boot-version: "@project.parent.version@"
+
+
+

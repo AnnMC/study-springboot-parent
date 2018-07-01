@@ -25,4 +25,6 @@ public interface UserService {
     List<UserDO> queryByUserName(String name, Pageable pageable);
 
     Long countUser();
+
+    void deleteUserById(Long id);
 }
