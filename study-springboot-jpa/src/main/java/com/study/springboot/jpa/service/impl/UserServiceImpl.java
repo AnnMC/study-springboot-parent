@@ -1,6 +1,8 @@
 package com.study.springboot.jpa.service.impl;
 
+import com.study.springboot.jpa.dao.AccountResponsity;
 import com.study.springboot.jpa.dao.UserResponsity;
+import com.study.springboot.jpa.domin.Account;
 import com.study.springboot.jpa.domin.UserDO;
 import com.study.springboot.jpa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserResponsity userResponsity;
 
+    @Autowired
+    private AccountResponsity accountResponsity;
+
     @Override
     public void insertUser(UserDO userDo) {
         userResponsity.save(userDo);
@@ -27,6 +32,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDO queryUserById(Long id) {
+        Account account = accountResponsity.queryById(id);
         return userResponsity.queryById(id);
     }
 

@@ -25,4 +25,5 @@ public interface UserResponsity extends BaseResponsity<UserDO, Long> {
 
     List<UserDO> queryByUserName(String name, Pageable pageable);
 
+
 }

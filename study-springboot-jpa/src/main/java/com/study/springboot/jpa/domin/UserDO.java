@@ -27,6 +27,7 @@ public class UserDO extends BaseDO implements Serializable {
     @Column(name = "address")
     private String address;
 
+
     @Override
     public String toString() {
         return "UserDO{" +
