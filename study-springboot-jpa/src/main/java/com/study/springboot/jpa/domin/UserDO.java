@@ -1,5 +1,7 @@
 package com.study.springboot.jpa.domin;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,15 +18,19 @@ public class UserDO extends BaseDO implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @ApiModelProperty(value = "id")
     private Long id;
 
     @Column(name = "user_name", nullable = false, length = 50)
+    @ApiModelProperty(value = "用户名")
     private String userName;
 
     @Column(name = "password", nullable = false, length = 50)
+    @ApiModelProperty(value = "密码")
     private String password;
 
     @Column(name = "address")
+    @ApiModelProperty(value = "地址")
     private String address;
 
 

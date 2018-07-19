@@ -38,43 +38,4 @@ public class StudyHttpServletRequestWrapper extends MyRequestWrapper {
         return new String(body, Charset.forName("UTF-8"));
     }
 
-    @Override
-    public BufferedReader getReader() {
-        return new BufferedReader(new InputStreamReader(getInputStream()));
-    }
-
-
-    @Override
-    public ServletInputStream getInputStream() {
-
-        final ByteArrayInputStream bais = new ByteArrayInputStream(body);
-
-        return new ServletInputStream() {
-            @Override
-
-            public int read() {
-                return bais.read();
-            }
-
-            @Override
-
-            public boolean isFinished() {
-                return false;
-            }
-
-            @Override
-
-            public boolean isReady() {
-                return false;
-            }
-
-            @Override
-
-            public void setReadListener(ReadListener readListener) {
-            }
-
-        };
-
-    }
-
 }

@@ -34,11 +34,10 @@ public class UserController {
 
 
     @ApiOperation("根据用户ID用户信息")
-    @ApiParam(name = "id", value = "用户id")
     @RequestMapping(value = "/queryUserById/{id}", method = RequestMethod.GET)
     public UserDTO queryUserById(HttpServletRequest httpServletRequest,
-                                 @PathVariable("id") Long id,
-                                 @RequestParam("userId") String userId) {
+                                 @ApiParam(name = "id", value = "id") @PathVariable("id") Long id,
+                                 @ApiParam(name = "userId", value = "用户id") @RequestParam("userId") String userId) {
         String token = (String) httpServletRequest.getAttribute("token");
         System.out.println("token : " + token);
         UserDO userDO = userService.queryUserById(id);
@@ -67,7 +66,7 @@ public class UserController {
 
     @ApiOperation("参数测试")
     @RequestMapping(value = "/list/{key}", method = RequestMethod.GET)
-    public void list2(@PathVariable("key") String key, @RequestParam(value = "kw", required = false) String kw) {
+    public void list2(@ApiParam(value = "关键字") @PathVariable("key") String key, @RequestParam(value = "kw", required = false) String kw) {
         System.out.println(key);
         System.out.println(kw);
     }

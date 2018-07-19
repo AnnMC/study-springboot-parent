@@ -4,6 +4,7 @@ import org.apache.commons.lang3.RandomUtils;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -16,7 +17,7 @@ public class RangeManager {
                     "zhangsan", "lisi", "nn", "linlin",
                     "ww", "xx", "yy", "qq"};
     private String juediqiusheng_key = "juediqiusheng";
-
+    HashSet
     /**
      * 初始化排行榜
      *
