@@ -1,4 +1,4 @@
-package com.study.springboot.email;
+package study.springboot.all.study.springboot.all.email;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,11 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
-public class MailServiceImpl implements MailService{
-
+@Service("mailService")
+public class MailServiceImpl implements MailService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
@@ -33,21 +32,5 @@ public class MailServiceImpl implements MailService{
         } catch (Exception e) {
             logger.error("发送简单邮件时发生异常！", e);
         }
-
-    }
-
-    @Override
-    public void sendHtmlMail(String to, String subject, String content) {
-
-    }
-
-    @Override
-    public void sendAttachmentsMail(String to, String subject, String content, String filePath) {
-
-    }
-
-    @Override
-    public void sendInlineResourceMail(String to, String subject, String content, String rscPath, String rscId) {
-
     }
 }
