@@ -1,6 +1,6 @@
 package study.springboot.all.study.springboot.all.handler;
 
-import org.springframework.context.MessageSource;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import study.springboot.all.study.springboot.all.content.ResponseContent;
@@ -27,7 +27,12 @@ public class WebExceptionHandler {
     }
 
     @ExceptionHandler(value = Exception.class)
-    public ResponseContent handleException() {
-        return new ResponseContent(1, "系统异常，请联系管理员");
+    public ResponseContent handleException(Exception e) {
+        return new ResponseContent(1, e.getMessage());
+    }
+
+    @ExceptionHandler(value = MethodArgumentNotValidException.class)
+    public ResponseContent handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
+        return new ResponseContent(1, e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
     }
 }

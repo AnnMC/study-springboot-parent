@@ -9,7 +9,9 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
@@ -47,13 +49,13 @@ public class UserController {
     }
 
     @ApiOperation("根据用户姓名查询用户信息，分页查询")
-    @ApiParam(name = "name", value = "用户姓名", required = true)
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public List<UserDO> list(@RequestParam("name") String name,
+    public List<UserDO> list(@ApiParam(name = "name", value = "用户姓名") @RequestParam("name") String name,
                              @RequestParam("size") Integer size,
                              @RequestParam("page") Integer page) {
-        Pageable pageRequest = new QPageRequest(page, size);
-        return userService.queryByUserName(name, pageRequest);
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "create_time"));
+        //Pageable pageRequest = new QPageRequest(page, size);
+        return userService.queryByUserName(name, pageable);
     }
 
     @ApiIgnore

@@ -11,7 +11,7 @@ import java.util.Random;
 /**
  * 异步任务加线程池
  */
-@Component
+//@Component
 public class AsynTask {
     private static Logger logger = LoggerFactory.getLogger(AsynTask.class);
 

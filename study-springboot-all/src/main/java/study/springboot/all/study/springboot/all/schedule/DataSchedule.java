@@ -19,7 +19,7 @@ import java.util.Random;
 /**
  * 定是任务处理类
  */
-@Component
+//@Component
 public class DataSchedule {
     private static Logger logger = LoggerFactory.getLogger(DataSchedule.class);
 
