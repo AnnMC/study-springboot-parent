@@ -1,7 +1,6 @@
 package study.springboot.all.study.springboot.all.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
